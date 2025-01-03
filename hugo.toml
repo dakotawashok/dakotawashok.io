@@ -1,0 +1,43 @@
+title = "Dakota Washok | Personal Website"
+baseURL = "https://dakotawashok.io/"
+theme = ["ananke"]
+
+defaultContentLanguage = "en"
+sectionPagesMenu = "main"
+enableRobotsTXT = true
+
+[pagination]
+pagerSize = 10 # this is set low for demonstrating with dummy content. Set to a higher number
+
+[sitemap]
+changefreq = "monthly"
+priority = 0.5
+filename = "sitemap.xml"
+
+[params]
+  author = "Dakota Washok"
+  description = "My thoughts and musings. References to my work and projects. A place to share my experiences and knowledge."
+  background_color_class = "bg-black"
+  featured_image_class = "cover bg-top"
+  cover_dimming_class = "bg-black-60"
+  recent_posts_number = 3
+
+[params.ananke.social.share]
+networks = [
+  "email",
+  "facebook",
+  "linkedin"
+]
+
+[params.ananke.social.follow]
+networks = [
+  "facebook",
+  "linkedin"
+]
+
+[params.ananke.social.facebook]
+username = "dakota.washok.3"
+# profilelink = "https://www.facebook.com/dakota.washok.3"
+
+[params.ananke.social.linkedin]
+username = "dwashok"

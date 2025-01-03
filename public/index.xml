@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dakota Washok | Personal Website</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Dakota Washok | Personal Website</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 02 Jan 2025 14:12:50 -0600</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resume</title>
+      <link>http://localhost:1313/latest/</link>
+      <pubDate>Thu, 02 Jan 2025 14:12:50 -0600</pubDate>
+      <guid>http://localhost:1313/latest/</guid>
+      <description>&lt;p&gt;DAKOTA S. G. WASHOK&lt;br&gt;&#xA;Senior Software Engineer - DevOps Engineer - Platform Engineer&lt;br&gt;&#xA;Island Lake, IL • (815) 593-2961 • &lt;a href=&#34;mailto:dakotawashok@gmail.com&#34;&gt;dakotawashok@gmail.com&lt;/a&gt;&lt;br&gt;&#xA;LinkedIn • GitHub&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;summary&#34;&gt;SUMMARY&lt;/h3&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Lifelong tinkerer and problem-solver with over 10 years of professional experience in IT and software&#xA;engineering. Adept at diagnosing complex technical issues and crafting robust, scalable solutions across&#xA;AWS, CI/CD pipelines, and diverse programming stacks. &lt;br&gt;&#xA;Recognized for adaptability, curiosity, and a&#xA;collaborative mindset that drives continual improvement and team success. Eager to leverage both&#xA;hands-on ingenuity and extensive DevOps expertise to deliver transformative results in fast-paced&#xA;environments.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
