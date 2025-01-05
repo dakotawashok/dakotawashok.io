@@ -1,12 +1,11 @@
 import * as cdk from 'aws-cdk-lib';
 import {Construct} from 'constructs';
 import {Bucket} from "aws-cdk-lib/aws-s3";
-import {Certificate, CertificateValidation, DnsValidatedCertificate} from "aws-cdk-lib/aws-certificatemanager";
+import {DnsValidatedCertificate} from "aws-cdk-lib/aws-certificatemanager";
 import {Distribution, ViewerProtocolPolicy} from "aws-cdk-lib/aws-cloudfront";
 import {S3StaticWebsiteOrigin} from "aws-cdk-lib/aws-cloudfront-origins";
 import {ARecord, HostedZone, RecordTarget} from "aws-cdk-lib/aws-route53";
 import {CloudFrontTarget} from "aws-cdk-lib/aws-route53-targets";
-import {addDependency} from "aws-cdk-lib/core/lib/deps";
 
 export class ProvisionStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
