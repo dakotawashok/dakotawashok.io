@@ -18,6 +18,8 @@ export class ProvisionStack extends cdk.Stack {
       websiteIndexDocument: 'index.html',
       websiteErrorDocument: '404.html',
       publicReadAccess: false, // CloudFront will handle access
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
       bucketName: `dakotawashokio-bucket-${this.account}-${this.region}`,
     });
 
@@ -51,5 +53,6 @@ export class ProvisionStack extends cdk.Stack {
       zone: hostedZone,
       target: RecordTarget.fromAlias(new CloudFrontTarget(distribution)),
     });
+
   }
 }
