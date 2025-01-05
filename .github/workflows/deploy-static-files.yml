@@ -39,4 +39,4 @@ jobs:
 
       - name: Sync S3 Bucket
         run: |
-          aws s3 sync public/ s3://dakotawashokio-bucket --delete
+          aws s3 sync public/ s3://dakotawashokio-bucket-757679872496-us-east-2 --delete
