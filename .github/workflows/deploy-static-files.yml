@@ -33,7 +33,7 @@ jobs:
       - name: Assume AWS Role using OIDC
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::864981714553:role/GitHubActions
+          role-to-assume: arn:aws:iam::757679872496:role/GitHubActions
           role-session-name: GitHubActions
           aws-region: us-east-2
 
