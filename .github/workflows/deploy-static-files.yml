@@ -1,0 +1,42 @@
+name: Deploy Hugo Static Site
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  HUGO_VERSION: latest
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+
+      - name: Build Hugo Site
+        run: hugo
+        env:
+          HUGO_ENV: production
+
+      - name: Assume AWS Role using OIDC
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::864981714553:role/GitHubActions
+          role-session-name: GitHubActions
+          aws-region: us-east-2
+
+      - name: Sync S3 Bucket
+        run: |
+          aws s3 sync public/ s3://dakotawashokio-bucket --delete
