@@ -6,6 +6,7 @@ import {Distribution, ViewerProtocolPolicy} from "aws-cdk-lib/aws-cloudfront";
 import {S3StaticWebsiteOrigin} from "aws-cdk-lib/aws-cloudfront-origins";
 import {ARecord, HostedZone, RecordTarget} from "aws-cdk-lib/aws-route53";
 import {CloudFrontTarget} from "aws-cdk-lib/aws-route53-targets";
+import {PolicyStatement, ServicePrincipal} from "aws-cdk-lib/aws-iam";
 
 export class ProvisionStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -45,6 +46,19 @@ export class ProvisionStack extends cdk.Stack {
         viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
     });
+
+    websiteBucket.addToResourcePolicy(
+      new PolicyStatement({
+        actions: ['s3:GetObject'],
+        resources: [`${websiteBucket.bucketArn}/*`],
+        principals: [new ServicePrincipal('cloudfront.amazonaws.com')],
+        conditions: {
+          StringEquals: {
+            'AWS:SourceArn': 'arn:aws:cloudfront::757679872496:distribution/E31O773N0YU99E',
+          },
+        },
+      })
+    );
 
     distribution.node.addDependency(certificate);
 
