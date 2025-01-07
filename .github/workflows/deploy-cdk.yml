@@ -17,9 +17,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.BOT_GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,14 +27,15 @@ jobs:
         run: npm install
         working-directory: provision
 
-      - name: Bootstrap CDK
-        run: npx cdk bootstrap
-        working-directory: provision
+      - name: Assume AWS Role using OIDC
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::757679872496:role/GitHubOIDCRole
+          role-session-name: GitHubActions
+          aws-region: us-east-2
 
       - name: Deploy CDK Stack
         run: npx cdk deploy --all --require-approval never
         working-directory: provision
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
